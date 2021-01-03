@@ -82,15 +82,15 @@ HWND CWnd::CreateEx(DWORD extStyle, LPCTSTR pclassName, LPCTSTR pWindowName, DWO
 	assert(GetApp());
 	assert(!IsWindow());
 
-	/*LPCTSTR className;
+	LPCTSTR className;
 	if (pclassName == 0 || pclassName[0] == _T('\0'))
 		className = _T("Win32++ Window");
 	else
-		className = _T("Win32++ Window");// pclassName;
-	const wchar_t CLASS_NAME[] = L"Sample Window Class";
+		className =  pclassName;
+
 	WNDCLASS wc;
 	ZeroMemory(&wc, sizeof wc);
-	wc.lpszClassName = CLASS_NAME;
+	wc.lpszClassName = className;
 	wc.hbrBackground = reinterpret_cast<HBRUSH>(::GetStockObject(WHITE_BRUSH));
 	wc.hCursor = ::LoadCursor(nullptr, IDC_ARROW);
 
@@ -98,19 +98,11 @@ HWND CWnd::CreateEx(DWORD extStyle, LPCTSTR pclassName, LPCTSTR pWindowName, DWO
 	{
 		TRACE("*** RegisterClass failed ***\n");
 		
-	}*/
-	const wchar_t CLASS_NAME[] = L"Sample Window Class";
-	WNDCLASS wc = {};
-	wc.lpfnWndProc = CWnd::StaticWindowProc;
-	wc.hInstance = GetApp()->GetInstanceHandle();
-	wc.lpszClassName = CLASS_NAME;
+	}
 
 	::RegisterClass(&wc);
-	//const wchar_t CLASS_NAME[] = L"Sample Window Class";
-	HWND wnd = ::CreateWindowEx(extStyle, CLASS_NAME, pWindowName, style, x, y, width, height,
+	HWND wnd = ::CreateWindowEx(extStyle, className, pWindowName, style, x, y, width, height,
 		parent, idOrMenu, GetApp()->GetInstanceHandle(), lparam);
-	//HWND wnd = ::CreateWindowEx(extStyle, className, pWindowName, style, x, y, width, height,
-	//	parent, idOrMenu, GetApp()->GetInstanceHandle(), lparam);
 
 	if(wnd == nullptr)
 	{
