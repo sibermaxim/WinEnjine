@@ -2,7 +2,9 @@
 #define WINAPP_H
 #pragma once
 
-#include <windows.h>
+#include <Windows.h>
+#include "StructDefined.h"
+
 
 // Define the VERIFY macro
 // In debug mode, VERIFY asserts if the expression evaluates to zero
@@ -28,6 +30,8 @@ public:
 
 	virtual  BOOL InitInstance();
 	virtual int Run();
+
+	TLSData* SetTlsData();
 
 private:
 

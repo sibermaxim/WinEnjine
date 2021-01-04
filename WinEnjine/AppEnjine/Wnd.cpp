@@ -4,6 +4,7 @@
 #include "Wnd.h"
 #include "WinApp.h"
 #include "globalEnjine.h"
+#include "StructDefined.h"
 
 CWnd::CWnd(): m_wnd(nullptr)
 {
@@ -100,7 +101,9 @@ HWND CWnd::CreateEx(DWORD extStyle, LPCTSTR pclassName, LPCTSTR pWindowName, DWO
 		
 	}
 
-	::RegisterClass(&wc);
+	// Ensure this thread has the TLS index set
+	TLSData* pTLSData = GetApp()->SetTlsData();
+
 	HWND wnd = ::CreateWindowEx(extStyle, className, pWindowName, style, x, y, width, height,
 		parent, idOrMenu, GetApp()->GetInstanceHandle(), lparam);
 

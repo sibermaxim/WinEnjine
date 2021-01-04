@@ -53,5 +53,8 @@
     <ClInclude Include="AppEnjine\globalEnjine.h">
       <Filter>AppEjine</Filter>
     </ClInclude>
+    <ClInclude Include="AppEnjine\StructDefined.h">
+      <Filter>AppEjine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

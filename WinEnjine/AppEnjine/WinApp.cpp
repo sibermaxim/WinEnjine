@@ -6,6 +6,10 @@
 
 CWinApp::CWinApp():m_Callback(nullptr)
 {
+	if(nullptr != SetnGetThis())
+	{
+		
+	}
 	SetnGetThis(this);
 
 	m_instance = static_cast<HINSTANCE>(GetModuleHandle(nullptr));
@@ -29,6 +33,11 @@ inline int CWinApp::Run()
 		
 	}
 	return 0;
+}
+
+TLSData * CWinApp::SetTlsData()
+{
+	return nullptr;
 }
 
 /***************************************************

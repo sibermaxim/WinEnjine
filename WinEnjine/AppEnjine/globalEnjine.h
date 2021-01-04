@@ -21,6 +21,8 @@ inline void Trace(LPCSTR str)
 	#endif
 #endif
 
+
+
 extern inline CWinApp* GetApp();
 
 #endif
