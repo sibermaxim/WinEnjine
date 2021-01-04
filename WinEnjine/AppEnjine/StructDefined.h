@@ -17,5 +17,6 @@ struct TLSData
 	TLSData() : pWnd(0), mainWnd(0),/* pMenuBar(0),*/ msgHook(0), dlgHooks(0) {} // Constructor
 };
 
-int i;
+int i = 0;
+i++;
 #endif
